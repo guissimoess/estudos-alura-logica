@@ -1,12 +1,33 @@
 alert('Seja bem-vindo ao jogo da adivinhação!');
-let numeroSecreto = 4;
+let numeroSecreto = parseInt(Math.random() * 100 + 1);
 console.log(numeroSecreto);
-let chute = prompt('Escolha um número entre 1 e 10');
+let chute;
+let tentativas = 1;
+
+// enquanto chute nao for igual ao numero secreto
+while (chute != numeroSecreto) {
+    chute =  prompt('Escolha um número entre 1 e 100');
+    // se chute for igual ao numero secreto
+    if (chute == numeroSecreto) {
+        break;
+    } else if (chute > numeroSecreto) {
+            alert(`Você errou! O número secreto é menor que ${chute} `);
+        } else {
+            alert(`Você errou! O número secreto é maior que ${chute}`);
+        }
+        tentativas++;
+    }
 
 
-// se chute for igual ao numero secreto
-if (chute == numeroSecreto) {
-    console.log('Você acertou! O número secreto era: ' + numeroSecreto);
+
+let palavraTentativa = tentativas > 1 ? 'tentativas' : 'tentativa';
+alert(`Parabéns! Você acertou o número secreto ${numeroSecreto} com ${tentativas} ${palavraTentativa}.`);
+
+/* if (tentativas > 1 ) {
+    alert(`Você acertou! O número secreto ${numeroSecreto} com ${tentativas} tentativas!`);
 } else {
-    console.log('Você errou! O número secreto era: ' + numeroSecreto);
+    alert(`Você acertou! O número secreto ${numeroSecreto} com ${tentativas} tentativa!`);
 }
+*/ 
+
+
